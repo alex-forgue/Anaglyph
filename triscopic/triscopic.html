@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title> Triscopic Anaglyph Drawer</title>
+<style>
+ body{font-family:sans-serif;margin:0;padding:1rem;background:#f0f0f0;}
+ #toolbar{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:.8rem;font-size:.9rem}
+ canvas{background:#fff;border:1px solid #777;touch-action:none;cursor:crosshair}
+ label{display:flex;align-items:center;gap:.4rem}
+ button,select,input[type=range]{padding:.3rem .5rem}
+</style>
+</head>
+<body>
+
+<h2>Triscopic Anaglyph Drawer</h2>
+
+<div id="toolbar">
+  <label>Tool
+    <select id="tool"></select>
+  </label>
+
+  <label>Brush size
+    <input type="range" id="size" min="1" max="40" value="8">
+    <span id="sizeVal">8</span> px
+  </label>
+
+  <label>Eye-offset
+    <input type="range" id="offset" min="0" max="60" value="20">
+    <span id="offsetVal">20</span> px
+  </label>
+
+  <label id="eraserWrap" style="display:none">Mode
+    <select id="eraserMode">
+      <option value="line">Erase line</option>
+      <option value="shape">Erase shape</option>
+    </select>
+  </label>
+
+  <button id="undoBtn">Undo</button>
+  <button id="redoBtn">Redo</button>
+  <button id="clear">Clear</button>
+  <button id="save">Export PNG</button>
+</div>
+
+<canvas id="drawArea" width="900" height="550"></canvas>
+
+<script src="triscopic.js"></script>
+</body>
+</html>
